@@ -8,6 +8,7 @@ app.use(express.static('./dist/catch-the-rabbit'));
 
 app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, './../dist/catch-the-rabbit/index.html'));
+  console.log('path', path.join(__dirname, './../dist/catch-the-rabbit/index.html'))
 });
 
 app.listen(process.env.PORT || 8080);
