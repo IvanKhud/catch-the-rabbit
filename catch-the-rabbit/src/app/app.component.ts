@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {HoleState} from "./shared/hole-state";
-import {holesCount} from "./shared/app.config";
+import { Component, OnInit } from '@angular/core';
+import { HoleState } from "./shared/hole-state";
+import { holesCount } from "./shared/app.config";
 
 @Component({
   selector: 'app-root',
@@ -40,7 +40,7 @@ export class AppComponent implements OnInit {
 
   private addNewRow(): void {
     const newRow: HoleState[] = this.table[this.table.length - 1].reduce((row, cell, index, lastRow) => {
-      if (lastRow[index - 1] === HoleState.Unknown || lastRow[index + 1] === HoleState.Unknown) {
+      if ([lastRow[index - 1], lastRow[index + 1]].includes(HoleState.Unknown)) {
         row.push(HoleState.Unknown);
       } else {
         row.push(HoleState.Empty);
