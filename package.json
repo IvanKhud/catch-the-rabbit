@@ -3,11 +3,18 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ng build --aot --prod"
+  },
+  "engines": {
+    "node": "14.15.1",
+    "npm": "6.14.8",
+    "cors": "^2.8.5",
+    "express": "^4.17.2"
   },
   "private": true,
   "dependencies": {
@@ -19,14 +26,17 @@
     "@angular/platform-browser": "~9.0.3",
     "@angular/platform-browser-dynamic": "~9.0.3",
     "@angular/router": "~9.0.3",
+    "@angular-devkit/build-angular": "~0.900.4",
+    "@angular/cli": "~9.0.4",
+    "@angular/compiler-cli": "~9.0.3",
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "path": "^0.12.7",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.900.4",
-    "@angular/cli": "~9.0.4",
-    "@angular/compiler-cli": "~9.0.3",
     "@angular/language-service": "~9.0.3",
     "@types/node": "^12.11.1",
     "@types/jasmine": "~3.5.0",
