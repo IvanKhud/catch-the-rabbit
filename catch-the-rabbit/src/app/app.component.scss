@@ -1,0 +1,45 @@
+.table-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  .row {
+    display: flex;
+    width: 80%;
+    height: 30px;
+    justify-content: space-between;
+
+    .cell {
+      width: 10%;
+      border: 1px solid darkslategray;
+    }
+
+    .empty {
+      background-color: darkgreen;
+    }
+
+    .unknown {
+      background-color: darkgrey;
+    }
+
+    .checked {
+      background-color: brown;
+    }
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    margin-top: 50px;
+
+    .button {
+      margin: 0 20px;
+      height: 30px;
+    }
+  }
+}
+
+.clickable {
+  cursor: pointer;
+}

@@ -1,0 +1,19 @@
+<div class="table-wrapper">
+  <h1>Catch the rabbit</h1>
+  <div class="row" *ngFor="let row of table; index as rowIndex">
+    <ng-container *ngFor="let cell of row; index as cellIndex">
+      <span *ngIf="cell === holeState.Unknown"
+            class="cell unknown"
+            (click)="rowIndex === table.length - 1 ? check(cellIndex) : null"
+            [ngClass]="{ 'clickable': rowIndex === table.length - 1 }">
+      </span>
+      <span *ngIf="cell === holeState.Empty" class="cell empty"></span>
+      <span *ngIf="cell === holeState.Checked" class="cell checked"></span>
+    </ng-container>
+  </div>
+  <div *ngIf="table.length> 1" class="buttons">
+    <button class="button clickable" (click)="revertLastStep()" [disabled]="table.length < 2">Revert last step</button>
+    <button class="button clickable" (click)="reset()" [disabled]="table.length < 2">Reset</button>
+  </div>
+  <h2 *ngIf="isWon">You won!</h2>
+</div>
