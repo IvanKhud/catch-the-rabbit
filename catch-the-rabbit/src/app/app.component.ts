@@ -47,12 +47,14 @@ export class AppComponent implements OnInit {
       }
       return row;
     }, []);
-    this.table.push(newRow);
-    this.verify();
+    this.isWon = this.verify(newRow);
+    if (!this.isWon) {
+      this.table.push(newRow);
+    }
   }
 
-  private verify(): void {
-    const possibleCells: HoleState[] = this.table[this.table.length - 1].filter((cell: HoleState) => cell === HoleState.Unknown);
-    this.isWon = possibleCells.length < 1;
+  private verify(row: HoleState[]): boolean {
+    const possibleCells: HoleState[] = row.filter((cell: HoleState) => cell === HoleState.Unknown);
+    return possibleCells.length < 1;
   }
 }
